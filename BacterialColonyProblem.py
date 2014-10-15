@@ -41,12 +41,10 @@ class BacterialColonyProblem(object):
         if not bactery and self.__getNeighbors(i, j) == 3: # Born
             return True
         if bactery:
-            if self.__getNeighbors(i, j) < 2: # Isolation
-                return False
-            if self.__getNeighbors(i, j) > 3: # Suffocation
-                return False
-            if self.__getNeighbors(i, j) in (2, 3): # Survival
+            if self.__getNeighbors(i, j) in (2,3): # Survival
                 return True
+            else:
+                return False # Death
         return bactery
 
     def __getNeighbors(self, i, j):
